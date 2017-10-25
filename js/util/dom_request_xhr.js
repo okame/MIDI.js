@@ -135,12 +135,4 @@ if (typeof MIDI === 'undefined') MIDI = {};
 		xhr.send(data);
 		return xhr;
 	};
-
-	/// NodeJS
-	if (typeof module !== 'undefined' && module.exports) {
-		var NodeFS = require('fs');
-		XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-		module.exports = root.util.request;
-	}
-
 })(MIDI);
