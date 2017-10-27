@@ -15,6 +15,9 @@ module.exports = function (grunt) {
   grunt.initConfig({
     concat: {
       'build/MIDI.js': [
+        'inc/jasmid/stream.js',
+        'inc/jasmid/midifile.js',
+        'inc/jasmid/replayer.js',
         'js/midi/audioDetect.js',
         'js/midi/gm.js',
         'js/midi/loader.js',
