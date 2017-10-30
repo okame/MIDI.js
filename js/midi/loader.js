@@ -55,7 +55,7 @@ MIDI.Player = MIDI.Player || {};
 				api = hash.substr(1);
 			} else if (supports.webmidi) {
 				api = 'webmidi';
-			} else if (window.AudioContext) { // Chrome
+			} else if (window.AudioContext || window.webkitAudioContext) {
 				api = 'webaudio';
 			} else if (window.Audio) { // Firefox
 				api = 'audiotag';
