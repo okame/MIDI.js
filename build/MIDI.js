@@ -1459,6 +1459,7 @@ var stopAudio = function() {
 		};
 
 		midi.noteOn = function(channelId, noteId, velocity, delay) {
+      ctx.createBufferSource().start(0);
 			delay = delay || 0;
 
 			/// check whether the note exists
