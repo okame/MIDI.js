@@ -269,8 +269,9 @@
 			};
 			///
 			var bufferPending = {};
-			for (var instrument in root.Soundfont) {
-				var soundfont = root.Soundfont[instrument];
+      var Soundfont = window.MIDI.Soundfont;
+			for (var instrument in Soundfont) {
+				var soundfont = Soundfont[instrument];
 				if (soundfont.isLoaded) {
 					continue;
 				}

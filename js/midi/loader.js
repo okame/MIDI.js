@@ -143,6 +143,7 @@ MIDI.Player = MIDI.Player || {};
 				root[context].connect(opts);
 			}
 		};
+    var Soundfont = MIDI.Soundfont || window.MIDI.Soundfont;
 		///
 		for (var i = 0; i < length; i ++) {
 			var instrumentId = instruments[i];

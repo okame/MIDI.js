@@ -1,4 +1,5 @@
 var MIDI = {};
+window.MIDI = {};
 
 /* Wrapper for accessing strings through sequential reads */
 function Stream(str) {
@@ -817,6 +818,7 @@ MIDI.Player = MIDI.Player || {};
 				root[context].connect(opts);
 			}
 		};
+    var Soundfont = MIDI.Soundfont || window.MIDI.Soundfont;
 		///
 		for (var i = 0; i < length; i ++) {
 			var instrumentId = instruments[i];
@@ -1673,8 +1675,9 @@ var stopAudio = function() {
 			};
 			///
 			var bufferPending = {};
-			for (var instrument in root.Soundfont) {
-				var soundfont = root.Soundfont[instrument];
+      var Soundfont = window.MIDI.Soundfont;
+			for (var instrument in Soundfont) {
+				var soundfont = Soundfont[instrument];
 				if (soundfont.isLoaded) {
 					continue;
 				}
