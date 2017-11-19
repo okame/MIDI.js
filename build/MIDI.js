@@ -1,3 +1,5 @@
+var MIDI = {};
+
 /* Wrapper for accessing strings through sequential reads */
 function Stream(str) {
 	var position = 0;
@@ -2266,3 +2268,4 @@ var Base64Binary = {
 		return uarray;	
 	}
 };
+module.exports = MIDI;

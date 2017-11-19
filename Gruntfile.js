@@ -15,6 +15,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     concat: {
       'build/MIDI.js': [
+        'build/prefix.js',
         'inc/jasmid/stream.js',
         'inc/jasmid/midifile.js',
         'inc/jasmid/replayer.js',
@@ -27,17 +28,20 @@ module.exports = function (grunt) {
         'js/midi/plugin.webmidi.js',
         'js/util/dom_request_xhr.js', // req when using XHR
         'js/util/dom_request_script.js', // req otherwise
-        'inc/shim/base64binary.js'
+        'inc/shim/base64binary.js',
+        'build/suffix.js',
       ]
     },
-    uglify: {
-      'build/MIDI.min.js': [
-        'build/MIDI.js'
-      ]
+    'node-minify': {
+      'minify': {
+        files: {
+          'build/MIDI.min.js': ['build/MIDI.js']
+        }
+      }
     }
   });
 
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.loadNpmTasks('grunt-node-minify');
+  grunt.registerTask('default', ['concat', 'node-minify']);
 };
